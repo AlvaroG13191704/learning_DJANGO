@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search an User</title>
+</head>
+<body>
+    <h1>Search an User</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" id="kword" name="kword" placeholder="Insert the name">
+        <button type="submit">Search</button>
+    </form>
+    <a href="{% url 'inicio' %}">Regrear al inicio</a>
+    <div>
+        {% for persona in personas %}
+        <h3> {{persona.nombre}} {{persona.apellido}} {{persona.email}} </h3>
+        {% endfor %}
+    </div>
+</body>
+</html>

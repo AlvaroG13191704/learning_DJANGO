@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block title %}Lista departamentos{% endblock %}
+
+{% block content %}
+    {% include "includes/header.html" %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">Lista departamento</h1>
+            <div class="cell">
+                <table>
+                    <tbody>
+                        {% for depas in departamentos  %}
+                        <tr>
+                            <td>{{depas.name}}</td>
+                            <td>{{depas.short_name}}</td>
+                            <td><a class="button success" href="{% url 'empleados_area' depas.short_name %}">Ver departamento</a></td>  
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock  %}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domilcios</title>
+</head>
+<body>
+    <h1>Sistema de administrador de domicilios</h1>
+    <div>
+        <h2>Crear persona</h2>
+        <h3><a href="nuevo_domicilio">Agregar Domilcios</a></h3>
+    </div>
+    <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID domicilio</th>
+                        <th>calle</th>
+                        <th>No. Calle</th>
+                        <th>Pais</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for domicilio in domicilios %}
+                       <tr>
+                           <td>{{domicilio.id}}</td>
+                            <td> {{domicilio.calle}} </td>
+                            <td> {{domicilio.no_calle}} </td>
+                            <td> {{domicilio.pais}} </td>
+                            <td><a href="detalle_domicilio/{{domicilio.id}}">Ver detalle</a></td>
+                            <td><a href="editar_domicilio/{{domicilio.id}}">Editar Domiclio</a></td>
+                            <td><a href="eliminar_domicilio/{{domicilio.id}}">Eliminar</a></td>
+                       </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+    </div>
+</body>
+</html> 

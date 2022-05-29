@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Sistema de adminsitrador de peronas</h1>
+    <div>
+        <h1>No. de personas {{nopersonas}}</h1>
+    </div>
+    <div>
+        <h2>Crear persona</h2>
+        <h3><a href="nueva_persona">Agregar persona</a></h3>
+        <h3><a href="nueva_persona_cw">Agregar persona con "createview"</a></h3>
+    </div>
+    <div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID Persona</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for persona in personas %}
+                       <tr>
+                           <td>{{persona.id}}</td>
+                            <td> {{persona.nombre}} {{persona.apellido}} </td>
+                            <td> {{persona.email}} </td>
+                            <td><a href="detalle_persona/{{persona.id}}">Ver detalle</a></td>
+                            <td><a href="editar_persona/{{persona.id}}">Editar Persona</a></td>
+                            <td><a href="eliminar_persona/{{persona.id}}">Eliminar</a></td>
+                       </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+    </div>
+    <div>
+        <h2>DOMICILIOS</h2>
+        <h3><a href="domicilios">Ver domicilios</a></h3>
+        <h3><a href="search">Buscar Persona</a></h3>
+    </div>
+</body>
+</html> 
+

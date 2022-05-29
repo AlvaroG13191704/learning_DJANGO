@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block title %}Pagina de inicio de empleados {% endblock %}
+
+{% block content %}
+    {% include "includes/header.html" %}
+    <h1>Pagina de inicio</h1>
+    <!--Inicio de imagen-->
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+        <div class="orbit-wrapper">
+          <div class="orbit-controls">
+            <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+            <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+          </div>
+          <ul class="orbit-container">
+            <li class="is-active orbit-slide">
+              <figure class="orbit-figure">
+                <img class="orbit-image" src="{% static 'img/foto1.jpg' %}" alt="Space">
+                <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+              </figure>
+            </li>
+            <li class="orbit-slide">
+              <figure class="orbit-figure">
+                <img class="orbit-image" src="{% static 'img/foto1.jpg' %}" alt="Space">
+                <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!--Inicio de imagen-->
+<!--Bienvenida-->  
+      <div class="grid-x align-center">
+        <h1 class="cell large-12 align-center" style="text-align:center;">Bienvenido al sistema de registro de empleados</h1>
+        <div class="cell large-12 align-center">
+            <div class="callout success" style="text-align:center;">
+                <h5>Este web esta hecha con django y css fundation</h5>
+                <a href="#">Ver empleados</a>
+            </div>
+        </div>
+      </div>
+<!--Fin-->  
+{% endblock  %}

@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+{% block title %}Editar Empleado No. {{empleado.id}}{% endblock %}
+
+{% block content %}
+    {% include "includes/header.html" %}
+    <div class="grid-container">
+        <div class="grid-x">
+            <h1 class="cell">Modificar Empleado</h1>
+        </div>
+        <div class="cell">
+            <form action="" method="POST" class="grid-x grid-margin-x" enctype="multipart/form-data"> {% csrf_token %}
+                <div class="large-6 cell">
+                    <label>Nombre:
+                        {{form.first_name}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <label>Apellido:
+                        {{form.last_name}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <label>Trabajo:
+                        {{form.job}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <label>Departamento:
+                        {{form.departamento}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <label>habilidades:
+                        {{form.habilidades}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <label>Avatar:
+                        {{form.image}}
+                    </label>
+                </div>
+                <div class="large-6 cell">
+                    <button type="submit" class="button success">Actualizar</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+{% endblock  %}
