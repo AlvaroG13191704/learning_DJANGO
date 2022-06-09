@@ -50,7 +50,10 @@ INSTALLED_APPS = [
     'users',
     'home',
     'entrada',
-    'favoritos'
+    'favoritos',
+    #ckeditor
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -143,7 +146,21 @@ MEDIA_ROOT = BASE_DIR/'media'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar':'Custom',
+        'toolbar_Custom': [
+            ['Bold','Italic','Underline'],
+            ['NumberedList','BulletedList','-','Outdent','Indent','JustifyLeft', 'JustifyRight', 'JustifyCenter'],
+            ['TextColor','Format','FontSize','Link'],
+            ['Smiley','Image','Iframe'],
+            ['RemoveFormat','Source'],
+        ],
+        'stylesSet':[
 
+        ],
+    }
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
