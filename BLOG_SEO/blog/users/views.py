@@ -14,14 +14,13 @@ def user_register(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             User.objects.create_user(   
-                form.cleaned_data['username'],
                 form.cleaned_data['email'],
                 form.cleaned_data['password1'],
-                nombres = form.cleaned_data['nombres'],
-                apellidos = form.cleaned_data['apellidos'],
+                full_name = form.cleaned_data['full_name'],
+                ocupation = form.cleaned_data['ocupation'],
                 genero = form.cleaned_data['genero']
             )
-            return redirect('/')
+            return redirect('login_user')
     else:
         form = UserRegisterForm()
     return render(request,'users/register.html',{"form":form})
@@ -32,12 +31,12 @@ def login_user(request):
         if form.is_valid():
             user = authenticate(
                 request,
-                username=form.cleaned_data['username'],
+                email=form.cleaned_data['email'],
                 password=form.cleaned_data['password']
             )
             if user is not None:
                 login(request,user)
-                return redirect('is_login')
+                return redirect('home')
     else:
         form = UserLoginForm()
     return render(request,'users/login.html',{"form":form})

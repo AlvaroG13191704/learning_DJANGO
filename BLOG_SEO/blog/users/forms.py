@@ -35,13 +35,25 @@ class UserRegisterForm(forms.ModelForm):
             'genero',
             'date_birth',
         )
+        widgets={
+            'email':forms.EmailInput(
+                attrs={
+                    'placeholder':'Correo Electronico...'
+                }
+            ),
+            'date_birth':forms.DateInput(
+                attrs={
+                    'type':'date'
+                }
+            ),
+        }
     
     def clean_password2(self):
         if self.cleaned_data['password1'] != self.cleaned_data['password2']:
             self.add_error('password2', 'Las contraseñas no son iguales')
 
 
-class LoginForm(forms.Form):
+class UserLoginForm(forms.Form):
     email = forms.CharField(
         label='E-mail',
         required=True,
@@ -62,7 +74,7 @@ class LoginForm(forms.Form):
     )
 
     def clean(self):
-        cleaned_data = super(LoginForm, self).clean()
+        cleaned_data = super(UserLoginForm, self).clean()
         email = self.cleaned_data['email']
         password = self.cleaned_data['password']
 

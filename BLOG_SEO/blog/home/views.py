@@ -1,5 +1,6 @@
+
 from django.shortcuts import redirect, render
-from home.forms import SuscribersForms
+from home.forms import SuscribersForms,ContactForm
 from home.models import Home
 #models import
 from entrada.models import Entry
@@ -23,3 +24,10 @@ def HomePageView(request):
         'home':home,
         'form':form,
     })
+
+def Contactform(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('home')
